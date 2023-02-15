@@ -1,0 +1,102 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+
+.inputs__btn {
+	font-family: 'Roboto', sans-serif;
+}
+
+main {
+	height: 100vh;
+}
+
+#icons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.icons__figure--mut {
+	margin-top: 42px;
+	object-fit: cover;
+}
+
+.icons__figure--central {
+	margin-top: 42px;
+	object-fit: cover;
+}
+
+.icons__figure--mut img {
+	object-fit: cover;
+}
+
+.icons__figure--central img {
+	object-fit: cover;
+}
+
+#inputs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+}
+
+input {
+	width: 280px;
+	height: 48px;
+	padding: 14px 12px;
+	border-radius: 4px 4px 0px 0px;
+	border-width: 0px 0px 2px 0px;
+	font-size: 1.6rem;
+	background-color: #f4f4f4;
+}
+
+#inputs > .inputs__container {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+#inputs > .inputs__container ~ .inputs__container {
+	position: relative;
+	margin-bottom: 0px;
+}
+
+.inputs__container img {
+	position: absolute;
+	top: 30%;
+	right: 10px;
+}
+
+.phrase__container {
+	width: 280px;
+	padding: 14px;
+}
+
+.phrase {
+	font-size: 1.4rem;
+	font-weight: 300;
+	color: #575757;
+}
+
+.inputs__btn {
+	margin-top: 30px;
+	width: 104px;
+	height: 40px;
+	border: none;
+	border-radius: 20px;
+	background-color: #32487b;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 700;
+}
