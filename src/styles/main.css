@@ -90,7 +90,7 @@ input {
 }
 
 .inputs__btn {
-	margin-top: 30px;
+	margin-top: 40px;
 	width: 104px;
 	height: 40px;
 	border: none;
@@ -99,4 +99,28 @@ input {
 	color: #ffffff;
 	font-size: 16px;
 	font-weight: 700;
+}
+
+.icons__figure--fingerprint {
+	margin-top: 5rem;
+}
+
+.new_password {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	margin-bottom: 3rem;
+	color: #32487b;
+}
+
+.list__container {
+	margin-top: 30px;
+}
+
+.list {
+	width: 280px;
+	margin-left: 50px;
+	font-size: 1.5rem;
+	font-weight: 400;
+	color: #575757;
 }
