@@ -13,32 +13,19 @@ const upperCaseItem = document.querySelector('#upperCase');
 const lowerCaseItem = document.querySelector('#lowerCase');
 const specialCaracterItem = document.querySelector('#specialCase');
 
-// ----------------------------------------------------------------
-
-// Show and hide password
-const showHidePassword = (element, image) => {
-	if (
-		element.getAttribute('type') === 'password' &&
-		image.getAttribute('src') === '../src/assets/eye-gray-open.png'
-	) {
-		element.setAttribute('type', 'text');
-		image.setAttribute('src', '../src/assets/eye-gray-close.png');
-	} else {
-		element.setAttribute('type', 'password');
-		image.setAttribute('src', '../src/assets/eye-gray-open.png');
-	}
+const showHidePassword = (element) => {
+	element.getAttribute('type') === 'password'
+		? element.setAttribute('type', 'text')
+		: element.setAttribute('type', 'password');
 };
 
-eyeImage.addEventListener('click', () =>
-	showHidePassword(inputPassword, eyeImage)
-);
+const changeEyeImage = (image) => {
+	image.getAttribute('src') === '../src/assets/eye-gray-open.png'
+		? image.setAttribute('src', '../src/assets/eye-gray-close.png')
+		: image.setAttribute('src', '../src/assets/eye-gray-open.png');
+};
 
-eyeImageConfirm.addEventListener('click', () =>
-	showHidePassword(inputPasswordConfirm, eyeImageConfirm)
-);
-
-// List items validation color
-inputNewPassword.addEventListener('keyup', () => {
+const changeColorListItem = () => {
 	const inputValue = inputNewPassword.value;
 
 	const alfanumeric = /(?=.*[a-z])(?=.*\d)/gi;
@@ -66,27 +53,59 @@ inputNewPassword.addEventListener('keyup', () => {
 	hasSpecialCaracter
 		? (specialCaracterItem.style.color = 'green')
 		: (specialCaracterItem.style.color = '#575757');
+};
 
-	if (
-		isAlfanumeric &&
-		hasUpperCaracter &&
-		hasLowerCaracter &&
-		hasSpecialCaracter
-	) {
-		inputNewPassword.style.borderColor = 'green';
-	} else {
-		inputNewPassword.style.borderColor = 'red';
-	}
+let isEmpty = false;
+
+const inputIsEmphy = (value1, value2) => {
+	value1 === '' || value2 === '' ? (isEmpty = true) : (isEmpty = false);
+
+	return isEmpty;
+};
+
+let valuesAreEqual = false;
+
+const compareInputValues = (value1, value2) => {
+	value1 === value2 ? (valuesAreEqual = true) : (valuesAreEqual = false);
+
+	return valuesAreEqual;
+};
+
+// Events
+eyeImage.addEventListener('click', () => {
+	showHidePassword(inputPassword);
+	changeEyeImage(eyeImage);
 });
+
+eyeImageConfirm.addEventListener('click', () => {
+	showHidePassword(inputPasswordConfirm);
+	changeEyeImage(eyeImageConfirm);
+});
+
+inputNewPassword.addEventListener('keyup', changeColorListItem);
 
 let validPassword = false;
 
 btnEnviar.addEventListener('click', () => {
+	inputIsEmphy(inputNewPassword.value, inputPasswordConfirm.value);
+
+	if (isEmpty) {
+		console.error('Debe llenar ambos campos');
+		return;
+	}
+
+	compareInputValues(inputNewPassword.value, inputPasswordConfirm.value);
+
+	if (!valuesAreEqual) {
+		console.error('password no coinciden');
+		return;
+	}
+
 	validPassword = validatePasswordFormat(inputNewPassword.value);
 
 	if (validPassword) {
-		alert('Correct');
+		console.log('Correcto');
 	} else {
-		alert('Please enter a valid password');
+		console.error('Invalid format password');
 	}
 });
