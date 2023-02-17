@@ -31,19 +31,21 @@
          </div>
 
          <div class="inputs__container">
-            <input class="inputs__container--password" type="text" placeholder="Contraseña" required>
-            <img class="inputs__containe--eye" src="../src/assets/eye-gray-open.png" alt="Logotipo ver contraseña">
+            <input id="password" class="inputs__container--password" type="password" placeholder="Contraseña" required>
+            <img id="eyeImage" class="inputs__container--open" src="../src/assets/eye-gray-open.png"
+               alt="Logotipo ver contraseña">
          </div>
 
-         <div class="phrase__container">
-            <p class="phrase">¿Olvidaste tu clave?</p>
+         <div class="forgot__container">
+            <a class="forgot" href="./forgotPassword.html">¿Olvidaste tu clave?</a>
          </div>
 
          <button class="inputs__btn" type="submit">Aceptar</button>
 
       </section>
    </main>
-   <script src="../src/main.js"></script>
+   <script type="module" src="../src/main.js"></script>
+   <script type="module" src="../src/ValidatePassword.js"></script>
 </body>
 
 </html>
